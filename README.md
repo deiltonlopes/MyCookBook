@@ -16,7 +16,7 @@ To better organize everything and make my recipes easier to find, I decided to c
 -----------------|-----------
 **Sugar touch**|For desserts and sweet food in general 🍫
 **Baked goodies**|For everything that has to go into an oven 🥐
-**Soul warmer**|For soups, brothes and stews 🥣
+**Soul warmers**|For soups, brothes and stews 🥣
 **Veggies**|For vegetable-based recipes 🥙
 
 ## To be implemented
