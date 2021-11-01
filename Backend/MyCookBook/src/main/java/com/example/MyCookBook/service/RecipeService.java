@@ -17,6 +17,8 @@ public interface RecipeService {
 
     void saveRecipe(Recipe recipe);
 
+    void deleteRecipe(Recipe recipe);
+
     List<Recipe> listRecipes();
 
     List<Recipe> getRecipesByCategories(List<Category> categories);

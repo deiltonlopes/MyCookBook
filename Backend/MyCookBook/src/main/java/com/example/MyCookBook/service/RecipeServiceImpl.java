@@ -35,6 +35,10 @@ public class RecipeServiceImpl implements RecipeService{
         recipeRepository.save(recipe);
     }
 
+    public void deleteRecipe(Recipe recipe) {
+        recipeRepository.delete(recipe);
+    }
+
     public List<Recipe> listRecipes() {
         return recipeRepository.findAll();
     }
