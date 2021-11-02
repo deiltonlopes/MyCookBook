@@ -19,7 +19,10 @@ To better organize everything and make my recipes easier to find, I decided to c
 **Soul warmers**|For soups, brothes and stews 🥣
 **Veggies**|For vegetable-based recipes 🥙
 
-## To be implemented
-One day shortly after I started making ***My cook book***, I saw myself wondering in my kitchen thinking about what could I prepare with the ingredients that I had at home, so I instantly had an idea that I could just add a feature to the website where I mark the iingredients that I have at home and the page will suggest me the recipes that I could make! Great feature to avoiid letting my <s>worst</s> least favorite ingredients go to waste, and since I know some Spring boot, that shouldn't be very hard.
+## Features
+* ✔️ Browsing and displaying recipes
+* ✔️ Spring Boot Backend
+* ⭕ Dark theme
+* ⭕ Find recipes you can prepare selecting the ingredients you have at home
 
 
