@@ -19,9 +19,11 @@ public interface RecipeService {
 
     void deleteRecipe(Recipe recipe);
 
+    Recipe updateRecipe(Recipe recipe, RecipeDTO recipeDTO);
+
     List<Recipe> listRecipes();
 
-    List<Recipe> getRecipesByCategories(List<Category> categories);
+    List<Recipe> getRecipesByCategory(Category category);
 
     List<Recipe> getRecipesByIngredients(List<String> ingredients);
 

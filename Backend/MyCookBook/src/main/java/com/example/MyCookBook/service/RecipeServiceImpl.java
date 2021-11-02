@@ -39,21 +39,24 @@ public class RecipeServiceImpl implements RecipeService{
         recipeRepository.delete(recipe);
     }
 
+    public Recipe updateRecipe(Recipe recipe, RecipeDTO recipeDTO) {
+        recipe.setCategories(recipeDTO.getCategories());
+        recipe.setAssetsName(recipeDTO.getAssetsName());
+        recipe.setIngredients(recipeDTO.getIngredients());
+        recipe.setInstructions(recipeDTO.getInstructions());
+        recipe.setName(recipeDTO.getName());
+        return recipeRepository.save(recipe);
+    }
+
     public List<Recipe> listRecipes() {
         return recipeRepository.findAll();
     }
 
-    public List<Recipe> getRecipesByCategories(List<Category> categories) {
+    public List<Recipe> getRecipesByCategory(Category category) {
         List<Recipe> recipes = listRecipes();
-        List<Recipe> result = new ArrayList<Recipe>();
-        boolean pass;
+        List<Recipe> result = new ArrayList<>();
         for(Recipe r : recipes){
-            pass = false;
-            for(Category c : categories){
-                if(r.hasCategory(c))
-                    pass=true;
-            }
-            if(pass)
+            if(r.hasCategory(category))
                 result.add(r);
         }
         return result;

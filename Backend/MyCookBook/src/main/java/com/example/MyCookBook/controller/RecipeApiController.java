@@ -1,6 +1,7 @@
 package com.example.MyCookBook.controller;
 
 import com.example.MyCookBook.DTO.RecipeDTO;
+import com.example.MyCookBook.model.Category;
 import com.example.MyCookBook.model.Recipe;
 import com.example.MyCookBook.service.RecipeService;
 import com.example.MyCookBook.util.ErrorRecipe;
@@ -22,8 +23,8 @@ public class RecipeApiController {
 
     @RequestMapping(value = "/recipes", method = RequestMethod.GET)
     public ResponseEntity<?> listRecipes(){
-        List<Recipe> recipes = recipeService.listRecipes();
 
+        List<Recipe> recipes = recipeService.listRecipes();
         if(recipes.isEmpty())
             return ErrorRecipe.errorNoRecipes();
 
@@ -42,7 +43,7 @@ public class RecipeApiController {
     }
 
     @RequestMapping(value = "/recipe/{recipeId}", method = RequestMethod.DELETE)
-    public ResponseEntity<?>addRecipe(@PathVariable("recipeId") long recipeId){
+    public ResponseEntity<?> deleteRecipe(@PathVariable("recipeId") long recipeId){
 
         Optional<Recipe> recipeOptional = recipeService.getRecipeById(recipeId);
         if(recipeOptional.isEmpty())
@@ -52,6 +53,48 @@ public class RecipeApiController {
         recipeService.deleteRecipe(recipe);
 
         return new ResponseEntity<String>(recipe.getName(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/recipe/{recipeId}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateRecipe(@PathVariable("recipeId") long recipeId, @RequestBody RecipeDTO recipeDTO){
+
+        Optional<Recipe> recipeOptional = recipeService.getRecipeById(recipeId);
+        if(recipeOptional.isEmpty())
+            return ErrorRecipe.errorNoSuchRecipe(recipeId);
+
+        Recipe recipe = recipeService.updateRecipe(recipeOptional.get(), recipeDTO);
+
+        return new ResponseEntity<Recipe>(recipe, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/recipes/category/{category}", method = RequestMethod.GET)
+    public ResponseEntity<?> getRecipesbyCategory(@PathVariable("category") Category category){
+
+        List<Recipe> recipes = recipeService.getRecipesByCategory(category);
+        if(recipes.isEmpty())
+            return ErrorRecipe.errorNoRecipesCategory();
+
+        return new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/recipes/ingredients", method = RequestMethod.POST)
+    public ResponseEntity<?> getRecipesByIngredients(@RequestBody List<String> ingredients){
+
+        List<Recipe> recipes = recipeService.getRecipesByIngredients(ingredients);
+        if(recipes.isEmpty())
+            return ErrorRecipe.errorNoRecipesIngredients();
+
+        return new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/recipes/ingredients", method = RequestMethod.GET)
+    public ResponseEntity<?> getAllIngredients(){
+
+        List<Recipe> recipes = recipeService.listRecipes();
+        if(recipes.isEmpty())
+            return ErrorRecipe.errorNoRecipes();
+        List<String> ingredients = recipeService.listAllIngredients();
+        return new ResponseEntity<List<String>>(ingredients, HttpStatus.OK);
     }
 
 
