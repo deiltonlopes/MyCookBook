@@ -1,10 +1,7 @@
 package com.example.MyCookBook.DTO;
 
-import com.example.MyCookBook.model.Aside;
 import com.example.MyCookBook.model.Category;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToOne;
 import java.util.List;
 
 public class RecipeDTO {
@@ -23,7 +20,13 @@ public class RecipeDTO {
 
     private String paragraph;
 
-    private Aside aside;
+    private String asideTitle;
+
+    private String asideFirstText;
+
+    private String[] asideList;
+
+    private String asideSecondText;
 
     public List<String> getIngredients() {
         return ingredients;
@@ -81,11 +84,35 @@ public class RecipeDTO {
         this.paragraph = paragraph;
     }
 
-    public Aside getAside() {
-        return aside;
+    public String getAsideTitle() {
+        return asideTitle;
     }
 
-    public void setAside(Aside aside) {
-        this.aside = aside;
+    public void setAsideTitle(String asideTitle) {
+        this.asideTitle = asideTitle;
+    }
+
+    public String getAsideFirstText() {
+        return asideFirstText;
+    }
+
+    public void setAsideFirstText(String asideFirstText) {
+        this.asideFirstText = asideFirstText;
+    }
+
+    public String[] getAsideList() {
+        return asideList;
+    }
+
+    public void setAsideList(String[] asideList) {
+        this.asideList = asideList;
+    }
+
+    public String getAsideSecondText() {
+        return asideSecondText;
+    }
+
+    public void setAsideSecondText(String asideSecondText) {
+        this.asideSecondText = asideSecondText;
     }
 }

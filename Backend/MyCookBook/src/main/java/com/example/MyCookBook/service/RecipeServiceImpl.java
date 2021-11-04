@@ -28,7 +28,7 @@ public class RecipeServiceImpl implements RecipeService{
     public Recipe createRecipe(RecipeDTO recipeDTO) {
         Recipe recipe = new Recipe(recipeDTO.getName(), recipeDTO.getAssetsName(), recipeDTO.getIngredients(),
                 recipeDTO.getInstructions(), recipeDTO.getCategories(), recipeDTO.getDescription(), recipeDTO.getParagraph(),
-                recipeDTO.getAside());
+                recipeDTO.getAsideTitle(), recipeDTO.getAsideFirstText(), recipeDTO.getAsideList(), recipeDTO.getAsideSecondText());
         saveRecipe(recipe);
         return recipe;
     }

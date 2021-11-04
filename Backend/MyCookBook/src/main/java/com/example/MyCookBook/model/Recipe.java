@@ -31,13 +31,19 @@ public class Recipe {
 
     private String paragraph;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    private Aside aside;
+    private String asideTitle;
+
+    private String asideFirstText;
+
+    private String[] asideList;
+
+    private String asideSecondText;
 
     private Recipe(){}
 
     public Recipe(String name, String assetsName, List<String> ingredients, List<String> instructions,
-                  List<Category> categories, String description, String paragraph, Aside aside) {
+                  List<Category> categories, String description, String paragraph, String asideTitle,
+                  String asideFirstText, String[] asideList, String asideSecondText) {
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.categories = categories;
@@ -45,7 +51,10 @@ public class Recipe {
         this.assetsName = assetsName;
         this.description = description;
         this.paragraph = paragraph;
-        this.aside = aside;
+        this.asideTitle = asideTitle;
+        this.asideFirstText = asideFirstText;
+        this.asideList = asideList;
+        this.asideSecondText = asideSecondText;
     }
 
     public Long getId() {
@@ -112,12 +121,36 @@ public class Recipe {
         this.paragraph = paragraph;
     }
 
-    public Aside getAside() {
-        return aside;
+    public String getAsideTitle() {
+        return asideTitle;
     }
 
-    public void setAside(Aside aside) {
-        this.aside = aside;
+    public void setAsideTitle(String asideTitle) {
+        this.asideTitle = asideTitle;
+    }
+
+    public String getAsideFirstText() {
+        return asideFirstText;
+    }
+
+    public void setAsideFirstText(String asideFirstText) {
+        this.asideFirstText = asideFirstText;
+    }
+
+    public String[] getAsideList() {
+        return asideList;
+    }
+
+    public void setAsideList(String[] asideList) {
+        this.asideList = asideList;
+    }
+
+    public String getAsideSecondText() {
+        return asideSecondText;
+    }
+
+    public void setAsideSecondText(String asideSecondText) {
+        this.asideSecondText = asideSecondText;
     }
 
     public boolean hasCategory(Category category) {
