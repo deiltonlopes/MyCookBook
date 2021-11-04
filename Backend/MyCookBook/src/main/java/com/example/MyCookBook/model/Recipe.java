@@ -27,14 +27,25 @@ public class Recipe {
 
     private String assetsName;
 
+    private String description;
+
+    private String paragraph;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    private Aside aside;
+
     private Recipe(){}
 
-    public Recipe(String name, String assetsName, List<String> ingredients, List<String> instructions, List<Category> categories){
-        this.name = name;
-        this.assetsName = assetsName;
+    public Recipe(String name, String assetsName, List<String> ingredients, List<String> instructions,
+                  List<Category> categories, String description, String paragraph, Aside aside) {
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.categories = categories;
+        this.name = name;
+        this.assetsName = assetsName;
+        this.description = description;
+        this.paragraph = paragraph;
+        this.aside = aside;
     }
 
     public Long getId() {
@@ -83,6 +94,30 @@ public class Recipe {
 
     public void setAssetsName(String assetsName) {
         this.assetsName = assetsName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getParagraph() {
+        return paragraph;
+    }
+
+    public void setParagraph(String paragraph) {
+        this.paragraph = paragraph;
+    }
+
+    public Aside getAside() {
+        return aside;
+    }
+
+    public void setAside(Aside aside) {
+        this.aside = aside;
     }
 
     public boolean hasCategory(Category category) {
