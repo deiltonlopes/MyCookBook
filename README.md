@@ -24,5 +24,6 @@ To better organize everything and make my recipes easier to find, I decided to c
 * ✔️ Spring Boot Backend
 * ⭕ Dark theme
 * ⭕ Find recipes you can prepare selecting the ingredients you have at home
+* ⭕ Go to a random recipe
 
 
