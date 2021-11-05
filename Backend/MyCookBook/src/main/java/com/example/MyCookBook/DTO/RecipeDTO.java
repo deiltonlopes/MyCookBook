@@ -1,12 +1,13 @@
 package com.example.MyCookBook.DTO;
 
 import com.example.MyCookBook.model.Category;
+import com.example.MyCookBook.model.Ingredient;
 
 import java.util.List;
 
 public class RecipeDTO {
 
-    private List<String> ingredients;
+    private List<Ingredient> ingredients;
 
     private List<String> instructions;
 
@@ -28,11 +29,11 @@ public class RecipeDTO {
 
     private String asideSecondText;
 
-    public List<String> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

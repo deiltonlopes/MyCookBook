@@ -2,6 +2,7 @@ package com.example.MyCookBook.service;
 
 import com.example.MyCookBook.DTO.RecipeDTO;
 import com.example.MyCookBook.model.Category;
+import com.example.MyCookBook.model.Ingredient;
 import com.example.MyCookBook.model.Recipe;
 import com.example.MyCookBook.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,13 +67,13 @@ public class RecipeServiceImpl implements RecipeService{
 
     public List<Recipe> getRecipesByIngredients(List<String> ingredients) {
         List<Recipe> recipes = listRecipes();
-        List<Recipe> result = new ArrayList<Recipe>();
+        List<Recipe> result = new ArrayList<>();
         boolean pass;
         for(Recipe r : recipes){
             pass=true;
-            List<String> recipeIngredients = r.getIngredients();
-            for(String ingredient : recipeIngredients){
-                if (!ingredients.contains(ingredient))
+            List<Ingredient> recipeIngredients = r.getIngredients();
+            for(Ingredient ingredient : recipeIngredients){
+                if (!ingredients.contains(ingredient.getName()))
                     pass = false;
             }
             if(pass)
@@ -85,10 +86,10 @@ public class RecipeServiceImpl implements RecipeService{
         List<String> ingredients = new ArrayList<>();
         List<Recipe> recipes = listRecipes();
         for(Recipe r : recipes){
-            List<String> recipeIngredients = r.getIngredients();
-            for(String i : recipeIngredients){
-                if(!ingredients.contains(i))
-                    ingredients.add(i);
+            List<Ingredient> recipeIngredients = r.getIngredients();
+            for(Ingredient i : recipeIngredients){
+                if(!ingredients.contains(i.getName()))
+                    ingredients.add(i.getName());
             }
         }
         return ingredients;

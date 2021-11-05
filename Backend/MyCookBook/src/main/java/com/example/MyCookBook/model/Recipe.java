@@ -10,9 +10,8 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="ingredients")
-    @ElementCollection(targetClass=String.class)
-    private List<String> ingredients;
+    @OneToMany(cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Ingredient> ingredients;
 
     @Column(name="instructions")
     @ElementCollection(targetClass=String.class)
@@ -41,7 +40,7 @@ public class Recipe {
 
     private Recipe(){}
 
-    public Recipe(String name, String assetsName, List<String> ingredients, List<String> instructions,
+    public Recipe(String name, String assetsName, List<Ingredient> ingredients, List<String> instructions,
                   List<Category> categories, String description, String paragraph, String asideTitle,
                   String asideFirstText, String[] asideList, String asideSecondText) {
         this.ingredients = ingredients;
@@ -65,11 +64,11 @@ public class Recipe {
         this.id = id;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
