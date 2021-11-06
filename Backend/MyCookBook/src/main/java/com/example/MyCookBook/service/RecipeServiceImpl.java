@@ -55,6 +55,13 @@ public class RecipeServiceImpl implements RecipeService{
         return recipeRepository.findAll();
     }
 
+    public Recipe getRandomRecipe() {
+        List<Recipe> recipes = listRecipes();
+        int randomIndex = (int) (Math.random() * recipes.size());
+
+        return recipes.get(randomIndex);
+    }
+
     public List<Recipe> getRecipesByCategory(Category category) {
         List<Recipe> recipes = listRecipes();
         List<Recipe> result = new ArrayList<>();

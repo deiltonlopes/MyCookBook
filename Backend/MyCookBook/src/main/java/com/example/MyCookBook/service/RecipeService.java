@@ -23,6 +23,8 @@ public interface RecipeService {
 
     List<Recipe> listRecipes();
 
+    Recipe getRandomRecipe();
+
     List<Recipe> getRecipesByCategory(Category category);
 
     List<Recipe> getRecipesByIngredients(List<String> ingredients);

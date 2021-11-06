@@ -97,5 +97,16 @@ public class RecipeApiController {
         return new ResponseEntity<List<String>>(ingredients, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/recipe/random", method = RequestMethod.GET)
+    public ResponseEntity<?> getRandomRecipe(){
+
+        List<Recipe> recipes = recipeService.listRecipes();
+        if(recipes.isEmpty())
+            return ErrorRecipe.errorNoRecipes();
+
+        Recipe recipe = recipeService.getRandomRecipe();
+        return new ResponseEntity<>(recipe, HttpStatus.OK);
+    }
+
 
 }
