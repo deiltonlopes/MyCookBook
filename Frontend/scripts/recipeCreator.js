@@ -40,11 +40,11 @@ function getCategories(){
 }
 
 function getIngredients(){
-    let allRawIngredients = document.querySelectorAll('#recipe-ingrtedients>span')
+    let allRawIngredients = document.querySelectorAll('#recipe-ingredients>span')
     let ingredients = []
     for(const i of allRawIngredients){
        let ingredient = {
-           name: i.getElementById('ingredient-name').value,
+           name: i.querySelector('#ingredient-name').value,
            amount: i.getElementsByClassName('ingredient-amt')[0].value,
            measure: i.getElementsByClassName('ingredient-measure')[0].value
        }
