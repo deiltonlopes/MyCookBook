@@ -11,17 +11,20 @@ function addMoreItems(){
 }
 
 function send(){
-    let name = document.getElementById('recipe-name').value
-    let assetsName = document.getElementById('assets-name').value
-    let categories = getCategories()
-    let description = document.getElementById('recipe-description').value
-    let paragraph = document.getElementById('recipe-paragraph').value
-    let ingredients = getIngredients()
-    let instructions = getInstructions()
-    let asideTitle = document.getElementById('recipe-aside-title').value
-    let asideFirstText = document.getElementById('recipe-aside-text').value
-    let asideList = getAsideList()
-    let asideSecondText = document.getElementById('recipe-aside-second-text').value
+    let recipe ={
+        ingredients : getIngredients(),
+        instructions : getInstructions(),
+        categories : getCategories(),
+        name : document.getElementById('recipe-name').value,
+        assetsName : document.getElementById('assets-name').value,
+        description : document.getElementById('recipe-description').value,
+        paragraph : document.getElementById('recipe-paragraph').value,
+        asideTitle : document.getElementById('recipe-aside-title').value,
+        asideFirstText : document.getElementById('recipe-aside-text').value,
+        asideList : getAsideList(),
+        asideSecondText : document.getElementById('recipe-aside-second-text').value
+    }
+    console.log(recipe)
     window.alert('Recipe created and persisted into the sysstem.')
 }
 
@@ -37,13 +40,33 @@ function getCategories(){
 }
 
 function getIngredients(){
-
+    let allRawIngredients = document.querySelectorAll('#recipe-ingrtedients>span')
+    let ingredients = []
+    for(const i of allRawIngredients){
+       let ingredient = {
+           name: i.getElementById('ingredient-name').value,
+           amount: i.getElementsByClassName('ingredient-amt')[0].value,
+           measure: i.getElementsByClassName('ingredient-measure')[0].value
+       }
+       ingredients.push(ingredient)
+    }
+    return ingredients
 }
 
 function getInstructions(){
-
+    let allRawInstructions = document.getElementsByClassName('instruction')
+    let instructions = []
+    for(const i of allRawInstructions){
+        instructions.push(i.value)
+    }
+    return instructions
 }
 
 function getAsideList(){
-    
+    let allRawItems = document.querySelectorAll('.recipe-aside-list>input')
+    let items = []
+    for(const i of allRawItems){
+        items.push(i.value)
+    }
+    return items
 }
