@@ -25,6 +25,7 @@ function send(){
         asideSecondText : document.getElementById('recipe-aside-second-text').value
     }
     data = JSON.stringify(recipe)
+    console.log(data)
     postRecipe(data)
     window.alert('Recipe created and persisted into the sysstem.')
 }
@@ -74,7 +75,8 @@ function getAsideList(){
 
 function postRecipe(data){
     let request = new XMLHttpRequest
-    request.open('POST', 'https://my-cook-book-bck.herokuapp.com/api/recipe', false)
+    request.open('POST', 'https://my-cook-book-bck.herokuapp.com/api/recipe', true)
+    request.setRequestHeader("Content-Type", "application/json");
     request.send(data)
     console.log(request.responseText)
 }

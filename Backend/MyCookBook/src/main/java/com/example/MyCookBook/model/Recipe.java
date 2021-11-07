@@ -26,16 +26,20 @@ public class Recipe {
 
     private String assetsName;
 
+    @Lob
     private String description;
 
+    @Lob
     private String paragraph;
 
     private String asideTitle;
 
+    @Lob
     private String asideFirstText;
 
     private String[] asideList;
 
+    @Lob
     private String asideSecondText;
 
     private Recipe(){}
