@@ -76,7 +76,7 @@ function getAsideList(){
 function postRecipe(data){
     let request = new XMLHttpRequest
     request.open('POST', 'https://my-cook-book-bck.herokuapp.com/api/recipe', true)
-    request.setRequestHeader("Content-Type", "application/json");
+    request.setRequestHeader("Content-Type", "application/json")
     request.send(data)
     console.log(request.responseText)
 }
