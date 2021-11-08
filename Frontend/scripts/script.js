@@ -30,8 +30,9 @@ function renderRecipeMain(recipe){
     let recipeMain = document.createElement('main')
     
     let article = makeArticle(recipe)
+    let aside = makeAside(recipe)
     
-    document.getElementById('recipe-content').innerHTML = article.outerHTML
+    document.getElementById('recipe-content').innerHTML = article.outerHTML + aside.outerHTML
 }
 
 function makeArticle(recipe){
@@ -77,4 +78,23 @@ function makeArticle(recipe){
     }
     article.innerHTML += instructions.outerHTML
     return article
+}
+
+
+function makeAside(recipe){
+    let aside = document.createElement('aside')
+
+    aside.innerHTML += `<h2>${recipe.asideTitle}</h2>`
+    aside.innerHTML += `<p>${recipe.asideFirstText}</p>`
+    if(recipe.asideList != [] && recipe.asideList !== null){
+        let list = document.createElement('ul')
+        for(const l of recipe.asideList){
+            list.innerHTML += `<li>${l}</li>`
+        }
+        aside.innerHTML += list.outerHTML
+    }
+    if(recipe.asideSecondText != '' && recipe.asideSecondText !== null){
+        aside.innerHTML += `<p>${recipe.asideSecondText}</p>`
+    }
+    return aside
 }
