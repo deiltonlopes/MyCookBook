@@ -7,7 +7,7 @@ function bodylessRequestMaker(method, url){
 
 function requestMaker(method, url, body){
     let request = new XMLHttpRequest
-    request.open(method, url, true)
+    request.open(method, url, false)
     request.setRequestHeader("Content-Type", "application/json")
     request.send(body)
     return request.responseText
@@ -53,9 +53,9 @@ function makeArticle(recipe){
         }else if(i.measure=='SPOON'){
             ingredient += ' spoons of '
         }else{
-            ingredient += 'teaspoons of '
+            ingredient += ' teaspoons of '
         }
-        ingredients += i.name
+        ingredient += i.name
         ingredients.innerHTML += `<li>${ingredient}</li>`
     }
     article.innerHTML += ingredients.outerHTML
