@@ -30,7 +30,13 @@ function showListCategory(category){
         element.innerHTML += `<a href=\"#\" onclick=\"loadRecipe(${r.id})\"><abbr title=\"${r.description}\">${r.name}</abbr></a>`
         list.innerHTML += element.outerHTML
     }
-    document.getElementById('recipes').innerHTML = list.innerHTML
+    document.getElementById('list-content').innerHTML = list.innerHTML
+}
+
+function loadRecipe(id){
+    let data = bodylessRequestMaker('GET', `https://my-cook-book-bck.herokuapp.com/api/recipe/${id}`)
+    let recipe = JSON.parse(data)
+    renderRecipeMain(recipe)
 }
 
 function getRandom(){
@@ -40,12 +46,10 @@ function getRandom(){
 }
 
 function renderRecipeMain(recipe){
-    let recipeMain = document.createElement('main')
-    
     let article = makeArticle(recipe)
     let aside = makeAside(recipe)
     
-    document.getElementById('recipe-content').innerHTML = article.outerHTML + aside.outerHTML
+    document.getElementsByTagName('main')[0].innerHTML = article.outerHTML + aside.outerHTML
 }
 
 function makeArticle(recipe){

@@ -1,4 +1,4 @@
-li{
+#list-content li{
     display: flex;
     background-color: var(--light);
     margin: 10px;
@@ -9,33 +9,33 @@ li{
     box-shadow: 2px 3px 3px var(--shadow);
 }
 
-li:nth-child(even){
+#list-content li:nth-child(even){
     flex-direction: row-reverse;
 }
 
-li img{
+#list-content li img{
     width: 40%;
     margin: 0px;
     border-radius: 0px;
     box-shadow: none;
 }
 
-li:nth-child(odd)>img{
+#list-content li:nth-child(odd)>img{
     border-radius: 10px 0px 0px 10px;
 }
 
-li:nth-child(even)>img{
+#list-content li:nth-child(even)>img{
     border-radius: 0px 10px 10px 0px;
 }
 
-li a{
+#list-content li a{
     margin: auto;
     padding: 30px;
     text-align: center;
     font-size: 1.5em;
     
 }
-li a:hover{
+#list content li a:hover{
     padding: 20px 30px 20px 0px;
 }
 

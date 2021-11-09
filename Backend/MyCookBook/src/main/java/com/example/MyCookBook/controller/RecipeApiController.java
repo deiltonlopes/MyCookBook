@@ -31,6 +31,18 @@ public class RecipeApiController {
         return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/recipe/{recipeId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getRecipe(@PathVariable("recipeId") long recipeId){
+
+        Optional<Recipe> recipeOptional = recipeService.getRecipeById(recipeId);
+        if(recipeOptional.isEmpty()){
+            return ErrorRecipe.errorNoSuchRecipe(recipeId);
+        }
+        Recipe recipe = recipeOptional.get();
+
+        return new ResponseEntity<>(recipe, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/recipe", method = RequestMethod.POST)
     public ResponseEntity<?> addRecipe(@RequestBody RecipeDTO recipeDTO){
 
