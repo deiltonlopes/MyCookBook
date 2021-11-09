@@ -97,7 +97,6 @@ function makeArticle(recipe){
     return article
 }
 
-
 function makeAside(recipe){
     let aside = document.createElement('aside')
 
@@ -114,4 +113,19 @@ function makeAside(recipe){
         aside.innerHTML += `<p>${recipe.asideSecondText}</p>`
     }
     return aside
+}
+
+function showIngredients(){
+    let form = document.createElement('div')
+    let rawIngredients = bodylessRequestMaker('GET', 'https://my-cook-book-bck.herokuapp.com/api/recipes/ingredients')
+    let ingredients = JSON.parse(rawIngredients)
+    for(const i of ingredients){
+        form.innerHTML += `<input type=\"checkbox\" name=\"user-ingredients\" class=\"user-ingredients\" value=\"${i}\">${i}`
+    }
+    form.innerHTML += '<button onclick=\"showRecipeList()\">Get the recipes</button>'
+    document.getElementById('form').innerHTML = form.innerHTML
+}
+
+function showRecipeList(){
+
 }

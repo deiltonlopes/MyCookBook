@@ -209,6 +209,23 @@ aside p{
     margin: 50px 0px;
 }
 
+button{
+    display: block;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    box-shadow: 2px 2px 3px var(--shadow);
+    background-color: var(--lightest);
+    color: var(--darkest);
+    transition-duration: 250ms;
+}
+
+button:hover{
+    background-color: var(--darkest);
+    color: var(--lightest);
+}
+
 footer{
     background-color: var(--dark);
     padding: 1px 20px 20px 20px;
