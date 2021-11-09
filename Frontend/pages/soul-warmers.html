@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/style.css">
 </head>
-<body>
+<body onload="showListCategory('SOUP')">
     <header>
         <h1> My cook book</h1>
         <p>My favorite adapted recipes</p>
@@ -16,7 +16,7 @@
     <nav>
         <a href="../index.html">Home</a>
         <a href="#">Find Recipes</a>
-        <a href="#">Random Recipe</a>
+        <a href="random.html">Random Recipe</a>
     </nav>
 
     <main>
@@ -24,7 +24,7 @@
 
         <p>In this section, you will find the best recipes for soups, broths and stews that will, well, warm up your soul. Check the list:</p>
 
-        <ul class="recipes">
+        <ul id="recipes">
             
         </ul>
 
@@ -33,6 +33,6 @@
     <footer>
         <p>Developed by Deilton Figueiredo Lopes</p>
     </footer>
-    
+    <script src="../scripts/script.js"></script>
 </body>
 </html>

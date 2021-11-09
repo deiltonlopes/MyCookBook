@@ -17,8 +17,21 @@ function getListCategory(category){
     data = bodylessRequestMaker('GET', `https://my-cook-book-bck.herokuapp.com/api/recipes/category/${category}`)
     recipesList = JSON.parse(data)
     console.log(recipesList)
+    return recipesList
 }
 
+function showListCategory(category){
+    let recipes = getListCategory(category)
+    let list = document.createElement('ul')
+    console.log(recipes.length)
+    for(const r of recipes){
+        let element = document.createElement('li')
+        element.innerHTML += `<img src=\"../images/${r.assetsName}/thumb.png\">`
+        element.innerHTML += `<a href=\"#\" onclick=\"loadRecipe(${r.id})\"><abbr title=\"${r.description}\">${r.name}</abbr></a>`
+        list.innerHTML += element.outerHTML
+    }
+    document.getElementById('recipes').innerHTML = list.innerHTML
+}
 
 function getRandom(){
     rawRecipe = bodylessRequestMaker('GET', 'https://my-cook-book-bck.herokuapp.com/api/recipe/random')
