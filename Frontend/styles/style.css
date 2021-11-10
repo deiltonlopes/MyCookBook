@@ -227,11 +227,9 @@ button:hover{
 }
 
 #ingredients{
-    columns: 3;
+    columns: 2;
     list-style: none;
 }
-
-
 
 footer{
     background-color: var(--dark);
