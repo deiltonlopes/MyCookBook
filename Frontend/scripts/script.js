@@ -22,15 +22,19 @@ function getListCategory(category){
 
 function showListCategory(category){
     let recipes = getListCategory(category)
+    let list = makeRecipesMenu(recipes)
+    document.getElementById('list-content').innerHTML = list.innerHTML
+}
+
+function makeRecipesMenu(recipes){
     let list = document.createElement('ul')
-    console.log(recipes.length)
     for(const r of recipes){
         let element = document.createElement('li')
         element.innerHTML += `<img src=\"../images/${r.assetsName}/thumb.png\">`
         element.innerHTML += `<a href=\"#\" onclick=\"loadRecipe(${r.id})\"><abbr title=\"${r.description}\">${r.name}</abbr></a>`
         list.innerHTML += element.outerHTML
     }
-    document.getElementById('list-content').innerHTML = list.innerHTML
+    return list
 }
 
 function loadRecipe(id){
@@ -123,9 +127,29 @@ function showIngredients(){
         form.innerHTML += `<input type=\"checkbox\" name=\"user-ingredients\" class=\"user-ingredients\" value=\"${i}\">${i}`
     }
     form.innerHTML += '<button onclick=\"showRecipeList()\">Get the recipes</button>'
-    document.getElementById('form').innerHTML = form.innerHTML
+    document.getElementById('form').innerHTML = form.innerHTML + 
 }
 
 function showRecipeList(){
+    let ingredients = []
+    let allCheckboxes = document.getElementsByClassName('user-ingredients')
+    for(const box of allCheckboxes){
+        if(box.checked){
+            ingredients.push(box.value)
+        }
+    }
+    
+    let rawRecipes = requestMaker('POST', 'https://my-cook-book-bck.herokuapp.com/api/recipes/ingredients', JSON.stringify(ingredients))
+    let recipes = JSON.parse(rawRecipes)
+    document.getElementById('form').style.display = 'none'
+    if(recipes.length > 0){
+        let list = makeRecipesMenu(recipes)
+        list.id = 'list-content'
 
+        document.querySelector('main>p').innerText = 'The recipes I found were:'
+        document.querySelector('main').innerHTML += list.outerHTML
+    }else{
+        document.querySelector('main>p').innerText = 'Unfortunately we couldn\'t find any recipes at this moment.'
+    }
+    
 }

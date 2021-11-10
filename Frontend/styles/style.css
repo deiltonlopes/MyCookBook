@@ -226,6 +226,17 @@ button:hover{
     color: var(--lightest);
 }
 
+#form{
+    width: 100%;
+    column-width: auto;
+    column-count: 3;
+    justify-content: space-around;
+}
+
+.user-ingredients input{
+    position: relative;
+}
+
 footer{
     background-color: var(--dark);
     padding: 1px 20px 20px 20px;
