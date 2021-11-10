@@ -226,16 +226,12 @@ button:hover{
     color: var(--lightest);
 }
 
-#form{
-    width: 100%;
-    column-width: auto;
-    column-count: 3;
-    justify-content: space-around;
+#ingredients{
+    columns: 3;
+    list-style: none;
 }
 
-.user-ingredients input{
-    position: relative;
-}
+
 
 footer{
     background-color: var(--dark);

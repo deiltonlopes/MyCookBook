@@ -120,14 +120,14 @@ function makeAside(recipe){
 }
 
 function showIngredients(){
-    let form = document.createElement('div')
+    let form = document.createElement('ul')
+    form.id = 'ingredients'
     let rawIngredients = bodylessRequestMaker('GET', 'https://my-cook-book-bck.herokuapp.com/api/recipes/ingredients')
     let ingredients = JSON.parse(rawIngredients)
     for(const i of ingredients){
-        form.innerHTML += `<input type=\"checkbox\" name=\"user-ingredients\" class=\"user-ingredients\" value=\"${i}\">${i}`
+        form.innerHTML += `<li><input type=\"checkbox\" name=\"user-ingredients\" class=\"user-ingredients\" value=\"${i}\"> ${i}</li>`
     }
-    form.innerHTML += '<button onclick=\"showRecipeList()\">Get the recipes</button>'
-    document.getElementById('form').innerHTML = form.innerHTML + 
+    document.getElementById('form').innerHTML = form.outerHTML + '<button onclick=\"showRecipeList()\">Get the recipes</button>'
 }
 
 function showRecipeList(){
