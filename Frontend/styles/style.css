@@ -240,7 +240,8 @@ button:hover{
 
 footer{
     background-color: var(--dark);
-    padding: 1px 20px 20px 20px;
+    margin-top: 20px;
+    padding: 10px 20px 10px 20px;
     color: var(--lightest);
     text-align: center;
 }
