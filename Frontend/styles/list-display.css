@@ -1,3 +1,9 @@
+main{
+    padding: -10px;
+    padding-bottom: 20px;
+    margin: 0px auto;
+}
+
 #list-content li{
     display: flex;
     background-color: var(--light);
@@ -7,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: 2px 3px 3px var(--shadow);
+    text-indent: 0px;
 }
 
 #list-content li:nth-child(even){
@@ -30,9 +37,8 @@
 
 #list-content li a{
     margin: auto;
-    padding: 30px;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     
 }
 #list content li a:hover{
@@ -41,6 +47,7 @@
 
 main>ul{
     list-style: none;
+    margin: auto;
 }
 
 main h1{
