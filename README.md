@@ -2,7 +2,7 @@
   <img width="28%" src="https://user-images.githubusercontent.com/62446763/139562453-940ba085-afb0-4d65-945f-61286d2100fa.png" alt="My cook book's logo" />
 </p>
 
->Status: Developing 🧗
+>Status: Populating recipes Database 📚
 
 This is a simple website that I am developing while improving my web developing skills. It is, as its name suggests, a cook book.
 
@@ -22,8 +22,15 @@ To better organize everything and make my recipes easier to find, I decided to c
 ## Features
 * ✔️ Browsing and displaying recipes
 * ✔️ Spring Boot Backend
-* ⭕ Dark theme
 * ✔️ Find recipes you can prepare selecting the ingredients you have at home
 * ✔️ Go to a random recipe
+
+## Tecnologies
+* HTML 5
+* CSS 3
+* Javascript (ES6+)
+* Spring Boot
+* Heroku
+* PostgreSQL
 
 
