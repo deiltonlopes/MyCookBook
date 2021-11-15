@@ -72,8 +72,10 @@ function makeArticle(recipe){
             ingredient += ' units of '
         }else if(i.measure=='CUP'){
             ingredient += ' cups of '
-        }else if(i.measure=='SPOON'){
-            ingredient += ' spoons of '
+        }else if(i.measure=='TABLESPOON'){
+            ingredient += ' tablespoons of '
+        }else if(i.measure=='GRAM'){
+            ingredient += ' grams of '
         }else{
             ingredient += ' teaspoons of '
         }

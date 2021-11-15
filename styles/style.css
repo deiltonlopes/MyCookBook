@@ -28,6 +28,7 @@
 body{
     background-color: var(--light);
     font-family: var(--font-normal);
+    margin-bottom: 70px;
 }
 
 p{
@@ -240,8 +241,12 @@ button:hover{
 
 footer{
     background-color: var(--dark);
-    margin-top: 20px;
     padding: 10px 20px 10px 20px;
     color: var(--lightest);
     text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
 }
