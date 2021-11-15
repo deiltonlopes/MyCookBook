@@ -1,5 +1,5 @@
 function addMoreIngredients(){
-    document.getElementById('recipe-ingredients').innerHTML += '<span><input type=\"number\" name=\"ingredient-amt\" class=\"ingredient-amt\" placeholder=\"Amount\"><select name=\"ingredient-measure\" class=\"ingredient-measure\"><option value=\"UNIT\">Unit</option><option value=\"CUP\">Cup</option><option value=\"TEASPOON\">Teaspoon</option><option value=\"SPOON\">Spoon</option></select><input type=\"text\" name=\"ingredient-name\" id=\"ingredient-name\" placeholder=\"Ingredient name\"><span>'
+    document.getElementById('recipe-ingredients').innerHTML += '<span><input type=\"number\" name=\"ingredient-amt\" class=\"ingredient-amt\" placeholder=\"Amount\"><select name=\"ingredient-measure\" class=\"ingredient-measure\"><option value=\"UNIT\">Unit</option><option value=\"CUP\">Cup</option><option value=\"TEASPOON\">Teaspoon</option><option value=\"TABLESPOON\">Tablespoon</option><option value=\"GRAM\">Grams</option></select><input type=\"text\" name=\"ingredient-name\" id=\"ingredient-name\" placeholder=\"Ingredient name\"><span>'
 }
 
 function addMoreInstructions(){
