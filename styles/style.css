@@ -75,7 +75,6 @@ a{
 }
 
 a:hover{
-    text-decoration: underline;
     color: var(--lightest);
     background-color: var(--dark);
     padding: 5px;
@@ -92,17 +91,17 @@ nav{
 }
 
 nav a {
-    text-decoration: none;
     text-align: center;
     color: white;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 5px;
     border-radius: 3px;
     transition-duration: 250ms;
+    background-color: var(--dark);
+    box-shadow: inset 1px 2px 2px var(--shadow);
 }
 
 nav a:hover{
-    text-decoration: underline;
     color: var(--dark);
     background-color: var(--light);
 }
