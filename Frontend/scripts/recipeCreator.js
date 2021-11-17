@@ -68,7 +68,9 @@ function getAsideList(){
     let allRawItems = document.querySelectorAll('.recipe-aside-list>input')
     let items = []
     for(const i of allRawItems){
-        items.push(i.value)
+        if(i.value != ''){
+            items.push(i.value)
+        }
     }
     return items
 }
