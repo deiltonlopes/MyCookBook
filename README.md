@@ -25,7 +25,7 @@ To better organize everything and make my recipes easier to find, I decided to c
 * ✔️ Find recipes you can prepare selecting the ingredients you have at home
 * ✔️ Go to a random recipe
 
-## Tecnologies
+## Technologies
 * HTML 5
 * CSS 3
 * Javascript (ES6+)
