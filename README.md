@@ -20,10 +20,10 @@ To better organize everything and make my recipes easier to find, I decided to c
 **Veggies**|For vegetable-based recipes 🥙
 
 ## Features
-* ✔️ Browsing and displaying recipes
-* ✔️ Spring Boot Backend
-* ✔️ Find recipes you can prepare selecting the ingredients you have at home
-* ✔️ Go to a random recipe
+* Browsing and displaying recipes
+* Spring Boot Backend
+* Find recipes you can prepare selecting the ingredients you have at home
+* Go to a random recipe
 
 ## Technologies
 * HTML 5
